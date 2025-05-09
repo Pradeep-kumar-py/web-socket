@@ -52,7 +52,7 @@ const wss = new WebSocketServer({ server })
 
 
 wss.on("connection", (ws) => {
-  let userCount = 0
+  console.log("New client connected. Total:", wss.clients.size)
   ws.on("error", (error: any) => {
     console.error("WebSocket error:", error)
   })
@@ -64,7 +64,7 @@ wss.on("connection", (ws) => {
     })
     console.log("Received message:", message)
   })
-  console.log("userConnected", ++userCount)
+  console.log("userConnected", )
   ws.send("Welcome to the WebSocket server!")
 })
 
